@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'python:3.5.1'
+    }
+    
+  }
   stages {
     stage('Init') {
       steps {
@@ -15,6 +20,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Start test phase'
+        sh 'python test.py'
       }
     }
   }
