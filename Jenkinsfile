@@ -23,5 +23,15 @@ pipeline {
         sh 'python test.py'
       }
     }
+    stage('Pre - Deploy ') {
+      steps {
+        input 'Start deploy? '
+      }
+    }
+    stage('Deploy') {
+      steps {
+        echo 'Deploy in progress'
+      }
+    }
   }
 }
